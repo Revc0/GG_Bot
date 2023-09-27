@@ -24,7 +24,7 @@ public class Main {
 
             Mono<Void> handleMessage = gateway.on(MessageCreateEvent.class, event -> {
                 Message message = event.getMessage();
-                // You may want to ensure the message is not from the bot itself
+              
                 if (!message.getAuthor().map(user -> user.getId().equals(gateway.getSelfId())).orElse(true)) {
 
                     return message.getChannel()
